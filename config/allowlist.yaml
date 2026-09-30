@@ -1,0 +1,7 @@
+# Tools each agent may use. Anything not listed is denied and traced as tool_denied.
+agents:
+  orchestrator: [verificar_identidad, consultar_listas_riesgo, preparar_documentacion, responder_cliente]
+  identity: [verify_identity]
+  risk: [check_risk_lists]
+  documentation: [prepare_documentation]
+  response: []

@@ -1,0 +1,16 @@
+from typing import Protocol
+
+from onboarding_common.domain.trace import TraceEvent
+
+
+class TracePublisher(Protocol):
+    async def start(self) -> None: ...
+    async def publish(self, event: TraceEvent) -> None: ...
+    async def stop(self) -> None: ...
+
+
+class ToolProvider(Protocol):
+    """Source of tools (an MCP server). Specs follow the OpenAI function-tool format."""
+
+    async def list_tools(self) -> list[dict]: ...
+    async def call(self, name: str, args: dict) -> dict: ...
